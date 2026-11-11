@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Maxence &amp; Catarina – 18 janvier 2027</title>
+<style>
+:root{--bg:#F3F6FA;--ink:#16233B;--mute:#55657F;--card:#FFFFFF;--line:#C5D3E4;--accent:#9A6F14;--btn:#16233B;--btnink:#F3F6FA;color-scheme:light dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1828;--ink:#EAF0F8;--mute:#9DB0C9;--card:#17233A;--line:#2C3C58;--accent:#E0B65A;--btn:#EAF0F8;--btnink:#0F1828}}
+:root[data-theme="dark"]{--bg:#0F1828;--ink:#EAF0F8;--mute:#9DB0C9;--card:#17233A;--line:#2C3C58;--accent:#E0B65A;--btn:#EAF0F8;--btnink:#0F1828}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:1.05rem/1.6 Georgia,"Palatino Linotype",Palatino,serif}
+main{max-width:30rem;margin:0 auto;padding:2.5rem 1.4rem 3rem}
+.names{font-style:italic;font-weight:400;font-size:clamp(2.6rem,13vw,3.8rem);line-height:1.02;margin:0;letter-spacing:-.01em}
+.names span{display:block;font-size:.5em;color:var(--accent);margin:.15em 0}
+.lead{margin:1.2rem 0 0;color:var(--mute);font-style:italic}
+.date{margin:2.2rem 0;padding:1.1rem 0;border-block:1px solid var(--line);text-align:center;font-size:1.5rem;letter-spacing:.02em}
+p{margin:0 0 1rem}
+ul{padding-left:1.2rem;margin:0 0 1.2rem}
+li{margin-bottom:.3rem}
+h2{font-size:1.25rem;font-weight:400;font-style:italic;margin:2.2rem 0 .8rem}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem}
+label.f{display:block;margin-bottom:1rem;font-size:.95rem;color:var(--mute)}
+input[type=text],select,textarea{display:block;width:100%;box-sizing:border-box;margin-top:.3rem;padding:.7rem .8rem;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px}
+textarea{min-height:4.5rem;resize:vertical}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.choice{display:grid;gap:.6rem;margin-bottom:1rem}
+.choice label{position:relative}
+.choice input{position:absolute;opacity:0;inset:0}
+.choice span{display:block;padding:.85rem 1rem;border:1px solid var(--line);border-radius:10px;text-align:center;cursor:pointer}
+.choice input:checked+span{background:var(--btn);color:var(--btnink);border-color:var(--btn)}
+.choice input:focus-visible+span{outline:2px solid var(--accent);outline-offset:2px}
+.send{display:grid;gap:.6rem;margin-top:.4rem}
+.send a{display:block;padding:.9rem 1rem;border-radius:10px;text-align:center;text-decoration:none;font:inherit;background:var(--btn);color:var(--btnink)}
+.send a[aria-disabled="true"]{opacity:.35;pointer-events:none}
+.send a.alt{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.hint{font-size:.9rem;color:var(--mute);margin:.8rem 0 0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<h1 class="names">Maxence<span>&amp;</span>Catarina</h1>
+<p class="lead">ont décidé de mettre fin à leur vie de célibataires.</p>
+<div class="date">Lundi 18 janvier 2027</div>
+
+<p>Après de longues délibérations (et un vote à l’unanimité de deux voix), nous avons conclu que la meilleure idée de notre vie était de la partager, en entier, pour de bon.</p>
+<p>Ce jour-là, nous disons « oui » devant ceux qui comptent le plus, et c’est vous.</p>
+
+<h2>Ce qui vous attend</h2>
+<ul>
+<li>Des larmes (de joie, on s’en occupe)</li>
+<li>Un repas dont on parlera encore longtemps</li>
+<li>Une piste de danse sans jugement</li>
+<li>Zéro discours de plus de trois minutes (promis, on a fait signer un papier)</li>
+</ul>
+<p>Votre mission : venir, être vous-mêmes, et nous aider à faire de cette journée un souvenir qu’on racontera aux enfants, aux petits-enfants et aux chats.</p>
+
+<h2>Serez-vous des nôtres ?</h2>
+<form id="rsvp" onsubmit="return false">
+<label class="f">Votre nom
+<input type="text" id="nom" autocomplete="name" placeholder="Prénom et nom">
+</label>
+<div class="choice" role="radiogroup" aria-label="Votre réponse">
+<label><input type="radio" name="rep" value="oui"><span>Oui, je viens</span></label>
+<label><input type="radio" name="rep" value="non"><span>Non, je ne pourrai pas venir</span></label>
+</div>
+<label class="f" id="nbwrap" hidden>Nombre de personnes (vous compris)
+<select id="nb"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+</label>
+<label class="f">Un mot pour nous (allergie, chanson qui fait toujours danser…)
+<textarea id="mot"></textarea>
+</label>
+<div class="send">
+<a id="sms" href="#" aria-disabled="true" target="_blank" rel="noopener">Envoyer par SMS</a>
+<a id="wa" class="alt" href="#" aria-disabled="true" target="_blank" rel="noopener">Envoyer par WhatsApp</a>
+</div>
+<p class="hint" id="hint">Choisissez votre réponse et indiquez votre nom : un message prêt à envoyer s’ouvrira.</p>
+</form>
+</main>
+<script>
+(function(){
+var TEL="33761718486";
+var nom=document.getElementById("nom"),nb=document.getElementById("nb"),mot=document.getElementById("mot");
+var nbwrap=document.getElementById("nbwrap"),sms=document.getElementById("sms"),wa=document.getElementById("wa"),hint=document.getElementById("hint");
+function rep(){var r=document.querySelector("input[name=rep]:checked");return r?r.value:""}
+function update(){
+  var r=rep(),n=nom.value.trim(),k=parseInt(nb.value,10),m=mot.value.trim();
+  nbwrap.hidden=r!=="oui";
+  var txt="";
+  if(r==="oui"){
+    txt="Bonjour Maxence et Catarina, c’est "+n+". Nous serons ravis d’être là pour votre mariage le 18 janvier 2027"+(k>1?" (à "+k+" personnes)":"")+" !";
+  }else if(r==="non"){
+    txt="Bonjour Maxence et Catarina, c’est "+n+". Je suis désolé(e), je ne pourrai pas être là pour votre mariage le 18 janvier 2027, mais je penserai très fort à vous !";
+  }
+  if(m&&txt){txt+=" "+m}
+  var ok=!!(r&&n);
+  sms.href=ok?"sms:+"+TEL+"?&body="+encodeURIComponent(txt):"#";
+  wa.href=ok?"https://wa.me/"+TEL+"?text="+encodeURIComponent(txt):"#";
+  sms.setAttribute("aria-disabled",ok?"false":"true");
+  wa.setAttribute("aria-disabled",ok?"false":"true");
+  hint.textContent=ok?"Le message s’ouvre déjà rédigé : il ne reste qu’à l’envoyer.":"Choisissez votre réponse et indiquez votre nom : un message prêt à envoyer s’ouvrira.";
+}
+document.getElementById("rsvp").addEventListener("input",update);
+document.getElementById("rsvp").addEventListener("change",update);
+update();
+})();
+</script>
+</body>
+</html>
